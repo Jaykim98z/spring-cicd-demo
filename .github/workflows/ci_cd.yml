@@ -1,4 +1,4 @@
-name: CI
+name: CD
 
 on:
   push:
@@ -52,7 +52,7 @@ jobs:
           WORKDIR /app
           COPY target/*.jar app.jar
           EXPOSE 8080
-          ENTRYPOINT ["java", "-jar", "app.jar]
+          ENTRYPOINT ["java", "-jar", "app.jar"]
           EOF
 
       - name: Docker Hub 로그인
@@ -67,8 +67,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ env.DOCKER_REGISTRY }}/spring-cicd-demo:latest
-            ${{ env.DOCKER_REGISTRY }}/spring-cicd-demo:${{ github.sha }}
+            ${{ env.DOCKER_REGISTRY }}/jaykim98z/spring-cicd-demo:latest
+            ${{ env.DOCKER_REGISTRY }}/jaykim98z/spring-cicd-demo:${{ github.sha }}
 #
 #      - name: 원격 서버 배포
 #        uses: appleboy/ssh-action@v0.1.5
