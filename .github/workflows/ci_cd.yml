@@ -6,7 +6,6 @@ on:
 
 env:
   DOCKER_REGISTRY: docker.io
-  DOCKER_USER: mudkim98
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
